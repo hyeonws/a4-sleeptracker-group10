@@ -29,10 +29,11 @@
               </ion-card-header>
             
               <ion-card-content>
-                You don't have any sleep logged for today.
+                <!-- You don't have any sleep logged for today. -->
+                {{startSleep}}
               </ion-card-content>
             
-              <ion-button fill="clear">Add Log</ion-button>
+              <ion-button fill="clear" (click)="addLog">Add Log</ion-button>
             </ion-card>
           </ion-col>
 
