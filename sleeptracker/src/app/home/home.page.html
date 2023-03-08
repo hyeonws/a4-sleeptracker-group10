@@ -14,7 +14,45 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div>
+      <h1><strong> {{greeting}}<br/>{{message}} </strong></h1>
+    </div>
+
+    <div>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Overnight Sleep Log</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                You don't have any sleep logged for today.
+              </ion-card-content>
+            
+              <ion-button fill="clear">Add Log</ion-button>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Sleepiness Log</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                You don't have any sleepiness logs for today.
+              </ion-card-content>
+            
+              <ion-button fill="clear">Add Log</ion-button>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+
   </div>
 </ion-content>
