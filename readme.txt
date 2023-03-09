@@ -16,7 +16,13 @@
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
-
+https://ionicframework.com/docs/api/datetime
+https://ionicframework.com/docs/api/modal
+https://ionicframework.com/docs/api/card
+https://ionicframework.com/docs/api/button
+https://ionicframework.com/docs/api/content
+https://ionicframework.com/docs/api/grid
+https://stackoverflow.com/questions/49699067/property-has-no-initializer-and-is-not-definitely-assigned-in-the-construc
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
