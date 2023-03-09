@@ -16,7 +16,17 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () => import('./home.module').then( m => m.HomePageModule) 
       },
+      {
+        path: 'logs',
+        redirectTo: 'logs',
+        pathMatch: 'prefix'
+      }
     ]
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
   
 ];

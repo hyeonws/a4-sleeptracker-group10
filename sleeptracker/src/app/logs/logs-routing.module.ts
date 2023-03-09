@@ -9,13 +9,21 @@ const routes: Routes = [
     component: LogsPage,
     children: [
       {
-        path: 'logs',
-        loadChildren: () => import('../logs/logs.module').then( m => m.LogsPageModule)
+        path: '',
+        redirectTo: '/logs',
+        pathMatch: 'full'
       },
-
+      {
+        path: 'logs',
+        loadChildren: () => import('../logs/logs.module').then( m => m.LogsPageModule),
+      },
+      {
+        path:'home',
+        redirectTo: 'home',
+        pathMatch: 'prefix'
+      }
     ]
   }
-  
 ];
 
 @NgModule({
