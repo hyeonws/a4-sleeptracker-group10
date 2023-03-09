@@ -21,49 +21,48 @@
     <div>
       <ion-grid>
         <ion-row>
-
           <ion-col>
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>Overnight Sleep Log</ion-card-title>
-              </ion-card-header>
-            
-              <ion-card-content>
-                <!-- You don't have any sleep logged for today. -->
-                {{sleepMsg}}
-              </ion-card-content>
-            
-              <ion-button id="overnight-modal" fill="outline" shape="round" (click)="addLog()">Add Log</ion-button>
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Overnight Sleep Log</ion-card-title>
+                </ion-card-header>
+              
+                <ion-card-content>
+                  <!-- You don't have any sleep logged for today. -->
+                  {{sleepMsg}}
+                </ion-card-content>
+              
+                <ion-button id="overnight-modal" fill="outline" shape="round">Add Log</ion-button>
 
-              <ion-modal mode="ios" trigger="overnight-modal">
-                <ng-template>
-                  <ion-header>
+                <ion-modal mode="ios" trigger="overnight-modal">
+                  <ng-template>
+                    <ion-header>
 
-                    <ion-toolbar>
-                      <ion-buttons slot="start">
-                        <ion-button (click)="cancel()">Cancel</ion-button>
-                      </ion-buttons>
-                      <ion-title>Overnight Sleep Log</ion-title>
-                      <ion-buttons slot="end">
-                        <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-                      </ion-buttons>
-                    </ion-toolbar>
+                      <ion-toolbar>
+                        <ion-buttons slot="start">
+                          <ion-button (click)="cancel()" data-dismiss="modal">Cancel</ion-button>
+                        </ion-buttons>
+                        <ion-title>Overnight Sleep Log</ion-title>
+                        <ion-buttons slot="end">
+                          <ion-button (click)="logConfirm()" [strong]="true">Confirm</ion-button>
+                        </ion-buttons>
+                      </ion-toolbar>
 
-                  </ion-header>
-                  <ion-content class="ion-padding">
-                    <ion-item>
-                      <ion-label position="stacked" size="large"><strong>What time did you go to sleep?</strong></ion-label>
-                      <ion-datetime presentation="date-time" (ionChange)="updateStartTime($event)" [preferWheel]="true"></ion-datetime>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label position="stacked" size="large"><strong>What time did you wake up?</strong></ion-label>
-                      <ion-datetime presentation="date-time" (ionChange)="updateEndTime($event)" [preferWheel]="true"></ion-datetime>
-                    </ion-item>
-                  </ion-content>
-                </ng-template>
-              </ion-modal>
+                    </ion-header>
+                    <ion-content class="ion-padding">
+                      <ion-item>
+                        <ion-label position="stacked" size="large"><strong>What time did you go to sleep?</strong></ion-label>
+                        <ion-datetime presentation="date-time" (ionChange)="updateStartTime($event)" [preferWheel]="true"></ion-datetime>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="stacked" size="large"><strong>What time did you wake up?</strong></ion-label>
+                        <ion-datetime presentation="date-time" (ionChange)="updateEndTime($event)" [preferWheel]="true"></ion-datetime>
+                      </ion-item>
+                    </ion-content>
+                  </ng-template>
+                </ion-modal>
 
-            </ion-card>
+              </ion-card>
           </ion-col>
 
           <ion-col>
@@ -73,10 +72,49 @@
               </ion-card-header>
             
               <ion-card-content>
-                You don't have any sleepiness logs for today.
+                {{sleepinessMsg}}
               </ion-card-content>
             
-              <ion-button fill="clear">Add Log</ion-button>
+              <ion-button id="sleepiness-modal" fill="outline" shape="round">Add Log</ion-button>
+
+              <ion-modal id="sleepiness" mode="ios" trigger="sleepiness-modal">
+                <ng-template>
+                  <ion-header>
+
+                    <ion-toolbar>
+                      <ion-buttons slot="start">
+                        <ion-button (click)="cancel()" data-dismiss="modal">Cancel</ion-button>
+                      </ion-buttons>
+                      <ion-title>Sleepiness Log</ion-title>
+                      <ion-buttons slot="end">
+                        <ion-button (click)="sleepConfirm()" [strong]="true">Confirm</ion-button>
+                      </ion-buttons>
+                    </ion-toolbar>
+
+                  </ion-header>
+                  <ion-content class="ion-padding">
+                    <ion-item>
+                      <ion-label position="stacked" size="large"><strong>How are you feeling?</strong></ion-label>
+                      <ion-range [ticks]="true" [snaps]="true" [min]="1" [max]="7" [pin]="true" (ionChange)="updateRangeValue($event)"></ion-range>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Num</th>
+                            <th>Sleepiness</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let sleep of sleepinessArray">
+                            <td>{{sleepinessArray.indexOf(sleep)+1}}</td>
+                            <td>{{sleep}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </ion-item>
+                  </ion-content>
+                </ng-template>
+              </ion-modal>
+
             </ion-card>
           </ion-col>
 
