@@ -83,15 +83,20 @@
         </ion-row>
       </ion-grid>
     </div>
+    
 
 
   </div>
 
-  <div>
+
+</ion-content>
+
+<div slot="bottom">
+  <ion-toolbar>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
     
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar slot="bottom" tabsHighlight="true">
         <ion-tab-button tab="home">
           <ion-icon name="home-outline"></ion-icon>
           Home
@@ -102,8 +107,6 @@
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
+</ion-toolbar>
 
-  </div>
-
-
-</ion-content>
+</div>
