@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'logs',
+    path: 'home/logs',
     loadChildren: () => import('./logs/logs.module').then( m => m.LogsPageModule)
   },
 
