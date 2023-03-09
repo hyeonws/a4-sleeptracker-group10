@@ -22,7 +22,10 @@ https://ionicframework.com/docs/api/card
 https://ionicframework.com/docs/api/button
 https://ionicframework.com/docs/api/content
 https://ionicframework.com/docs/api/grid
+https://ionicframework.com/docs/api/tabs#usage
+https://ionicframework.com/docs/api/range
 https://stackoverflow.com/questions/49699067/property-has-no-initializer-and-is-not-definitely-assigned-in-the-construc
+https://stackoverflow.com/questions/57079323/ion-tabs-scrolling-inside-ion-card-element-instead-of-being-fixed-to-bottom-io
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
