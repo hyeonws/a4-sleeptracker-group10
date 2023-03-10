@@ -26,6 +26,7 @@
 
                 <ion-card-header>
                   <ion-card-title>Overnight Sleep Log</ion-card-title>
+                  <ion-card-subtitle>Today's Log</ion-card-subtitle>
                 </ion-card-header>
               
                 <ion-card-content>{{sleepMsg}}</ion-card-content>
@@ -38,6 +39,7 @@
             <ion-card>
               <ion-card-header>
                 <ion-card-title>Sleepiness Log</ion-card-title>
+                <ion-card-subtitle>Today's Most Recent Log</ion-card-subtitle>
               </ion-card-header>
             
               <ion-card-content>
@@ -73,8 +75,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let sleep of sleepinessArray">
-                            <td>{{sleepinessArray.indexOf(sleep)+1}}</td>
+                          <tr *ngFor="let sleep of sleepinessScale">
+                            <td>{{sleepinessScale.indexOf(sleep)+1}}</td>
                             <td>{{sleep}}</td>
                           </tr>
                         </tbody>

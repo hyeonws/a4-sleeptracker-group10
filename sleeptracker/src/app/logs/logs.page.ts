@@ -12,7 +12,7 @@ export class LogsPage implements OnInit {
   sleepData:SleepData[] = [];
 
   constructor(public sleepService:SleepService) { 
-    this.sleepData = this.allSleepData.reverse();
+    this.sleepData = this.allSleepData.slice().reverse();
   }
 
   ngOnInit() {

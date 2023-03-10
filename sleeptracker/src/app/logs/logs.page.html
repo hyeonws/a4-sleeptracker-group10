@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-list>
-    <ion-card *ngFor="let data of sleepData" [ngStyle]="{'background': data.constructor.name == 'OvernightSleepData' ? 'Purple' : 'Blue'}">
+    <ion-card *ngFor="let data of sleepData" [color]="data.constructor.name == 'OvernightSleepData' ? 'primary' : 'secondary'">
       <ion-card-header>
         <ion-card-subtitle *ngIf="data.constructor.name == 'OvernightSleepData'; else sleepinessBlock"><strong>Overnight Sleep Log</strong></ion-card-subtitle>
         <ng-template #sleepinessBlock><strong>Sleepiness Log</strong></ng-template>
