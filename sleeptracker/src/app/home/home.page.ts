@@ -3,6 +3,8 @@ import { SleepService } from '../services/sleep.service';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 import { ModalController } from '@ionic/angular';
 import { OvernightModalComponent } from '../overnight-modal/overnight-modal.component';
+import { SleepData } from '../data/sleep-data';
+import { OvernightSleepData } from '../data/overnight-sleep-data';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomePage implements OnInit {
 	sleepinessMsg:string = "You don't have any sleepiness logs for today.";
 	greeting:string;
 	message:string;
+	now:Date = new Date();
 
 	sleepinessArray:Array<string> = [];
 	startSleep:Date;
@@ -27,11 +30,10 @@ export class HomePage implements OnInit {
 			this.sleepinessArray[i] = StanfordSleepinessData.ScaleValues[i];
 		}
 
-		let now = new Date();
-		if (now.getHours() > 6 && now.getHours() < 12) {
+		if (this.now.getHours() > 6 && this.now.getHours() < 12) {
 			this.greeting = this.greetings[0];
 			this.message = this.messages[0];
-		} else if (now.getHours() < 19) {
+		} else if (this.now.getHours() < 19) {
 			this.greeting = this.greetings[1];
 			this.message = this.messages[1];
 		} else {
@@ -39,8 +41,23 @@ export class HomePage implements OnInit {
 			this.message = this.messages[2];
 		}
 
-		this.startSleep = now;
-		this.endSleep = now;
+		this.startSleep = this.now;
+		this.endSleep = this.now;
+
+		let sleepArray:Array<OvernightSleepData> = SleepService.AllOvernightData;
+		let sleepinessArray:Array<SleepData> = SleepService.AllSleepinessData;
+
+		if (sleepArray[sleepArray.length-1].end().getDate() === this.now.getDate() &&
+			sleepArray[sleepArray.length-1].end().getMonth() === this.now.getMonth() &&
+			sleepArray[sleepArray.length-1].end().getFullYear() === this.now.getFullYear()) {
+				this.sleepMsg = sleepArray[sleepArray.length-1].summaryString();
+		}
+		
+		if (sleepinessArray[sleepinessArray.length-1].loggedAt.getDate() === this.now.getDate() &&
+			sleepinessArray[sleepinessArray.length-1].loggedAt.getMonth() === this.now.getMonth() &&
+			sleepinessArray[sleepinessArray.length-1].loggedAt.getFullYear() === this.now.getFullYear()) {
+				this.sleepinessMsg = sleepinessArray[sleepinessArray.length-1].summaryString();
+		}
 	}
 
 	ngOnInit() {;
@@ -60,7 +77,9 @@ export class HomePage implements OnInit {
 		const { data, role } = await modal.onWillDismiss();
 
 		if (role === 'confirm') {
-			this.sleepMsg = data.summaryString();
+			if (data.end.getDate() === this.now.getDate() && data.end.getMonth() === this.now.getMonth() && data.end.getFullYear === this.now.getFullYear()) {
+				this.sleepMsg = data.summaryString();
+			}
 		}
 	}
 	

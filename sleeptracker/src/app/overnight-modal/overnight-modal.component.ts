@@ -12,14 +12,14 @@ import { SleepService } from '../services/sleep.service';
   styleUrls: ['./overnight-modal.component.scss'],
 })
 export class OvernightModalComponent implements OnInit {
+  now = new Date();
   start:Date;
 	end:Date;
   data!:OvernightSleepData;
 
   constructor(private modal: ModalController, public sleepService:SleepService) {
-    let now = new Date();
-    this.start = now;
-    this.end = now;
+    this.start = this.now;
+    this.end = this.now;
   }
 
   ngOnInit() {}

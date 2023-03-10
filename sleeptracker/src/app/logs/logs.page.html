@@ -7,7 +7,8 @@
   <ion-list>
     <ion-card *ngFor="let data of sleepData">
       <ion-card-header>
-        <ion-card-subtitle>{{data.constructor.name}}</ion-card-subtitle>
+        <ion-card-subtitle *ngIf="data.constructor.name == 'OvernightSleepData'; else sleepinessBlock"><strong>Overnight Sleep Log</strong></ion-card-subtitle>
+        <ng-template #sleepinessBlock><strong>Sleepiness Log</strong></ng-template>
         <ion-card-title>{{data.summaryString()}}</ion-card-title>
       </ion-card-header>
     
