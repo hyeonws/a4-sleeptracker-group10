@@ -7,7 +7,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
   providedIn: 'root'
 })
 export class SleepService {
-	private static LoadDefaultData:boolean = true;
+	private static LoadDefaultData:boolean = false;
 	public static AllSleepData:SleepData[] = [];
 	public static AllOvernightData:OvernightSleepData[] = [];
 	public static AllSleepinessData:StanfordSleepinessData[] = [];
