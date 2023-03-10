@@ -4,7 +4,7 @@
 import { SleepData } from './sleep-data';
 
 export class StanfordSleepinessData extends SleepData {
-	public static ScaleValues = ["",//Sleepiness scale starts at 1
+	public static ScaleValues = [//Sleepiness scale starts at 1
 	'Feeling active, vital, alert, or wide awake', //1
 	'Functioning at high levels, but not at peak; able to concentrate', //2
 	'Awake, but relaxed; responsive but not fully alert', //3

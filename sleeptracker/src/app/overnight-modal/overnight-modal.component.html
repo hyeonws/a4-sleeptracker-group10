@@ -1,0 +1,29 @@
+<ion-header mode="ios">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()" data-dismiss="modal">Cancel</ion-button>
+    </ion-buttons>
+
+    <ion-title>Overnight Sleep Log</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content mode="ios" class="ion-padding">
+
+  <ion-item>
+    <ion-label position="stacked" size="large"><strong>What time did you go to sleep?</strong></ion-label>
+    <ion-datetime presentation="date-time" (ionChange)="updateStartTime($event)" [preferWheel]="true"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" size="large"><strong>What time did you wake up?</strong></ion-label>
+    <ion-datetime presentation="date-time" (ionChange)="updateEndTime($event)" [preferWheel]="true"></ion-datetime>
+  </ion-item>
+
+</ion-content>
