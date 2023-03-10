@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
 			this.sleepinessScale[i] = StanfordSleepinessData.ScaleValues[i];
 		}
 
-		if (this.now.getHours() > 6 && this.now.getHours() < 12) {
+		if (this.now.getHours() > 5 && this.now.getHours() < 12) {
 			this.greeting = this.greetings[0];
 			this.message = this.messages[0];
 		} else if (this.now.getHours() > 11 && this.now.getHours() < 19) {

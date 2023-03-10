@@ -22,11 +22,4 @@ export class LogsPage implements OnInit {
   get allSleepData() {
 		return SleepService.AllSleepData;
 	}
-
-  // Implements infinite scrolling to view more logs.
-  onIonInfinite(ev:any) {
-    setTimeout(() => {
-      (ev as InfiniteScrollCustomEvent).target.complete();
-    }, 500);
-  }
 }
