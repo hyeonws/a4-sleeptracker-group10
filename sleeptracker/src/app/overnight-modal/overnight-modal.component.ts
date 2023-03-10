@@ -22,6 +22,7 @@ export class OvernightModalComponent implements OnInit {
 
   ngOnInit() {}
 
+  // Throws an alert when time slept is equal to zero or less.
   async negativeAlert() {
     const alert = await this.alert.create({
       header: 'Error',
@@ -33,6 +34,7 @@ export class OvernightModalComponent implements OnInit {
     await alert.present();
   }
 
+  // Throws an alert when one of the times picked is in the future.
   async timeAlert() {
     const alert = await this.alert.create({
       header: 'Error',
@@ -44,10 +46,12 @@ export class OvernightModalComponent implements OnInit {
     await alert.present();
   }
 
+  // Closes the modal.
   cancel() {
 		return this.modal.dismiss(null, 'cancel');
   }
 	
+  // Runs through error checks, and if none are present, properly logs and dismisses the modal.
 	confirm() {
     if (new Date(this.start) >= new Date(this.end)) {
       this.negativeAlert();
@@ -62,6 +66,7 @@ export class OvernightModalComponent implements OnInit {
     }
 	}
 
+  // Updates time when date-time picker is used.
   updateStartTime(event: any) {
 		const ev = event;
 		this.start = ev.detail.value;
